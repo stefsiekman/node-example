@@ -55,6 +55,7 @@ class Node:
         :param depth: The recursion depth (default for root)
         :return: Pretty string representation of the tree starting at this Node
         """
+        
         # Add this node to the string
         string = str(self) + '\n'
 
