@@ -33,3 +33,29 @@ Node(count=10)
                     #1: Node(count=1)
         #1: Node(count=1)
 ```
+
+Since there is no limit to the depth of the tree, it is also possible to get tree structures like:
+
+```
+Node(count=10)
+    #0: Node(count=2)
+        #1: Node(count=1)
+            #1: Node(count=1)
+                #1: Node(count=1)
+                    #0: Node(count=1)
+                        #0: Node(count=1)
+                            #0: Node(count=1)
+                                #1: Node(count=1)
+                                    #0: Node(count=1)
+                                        #0: Node(count=1)
+                                            #1: Node(count=1)
+                                                #0: Node(count=1)
+                                                    #1: Node(count=1)
+                                                        #1: Node(count=1)
+                                                            #1: Node(count=1)
+                                                                #0: Node(count=1)
+    #1: Node(count=3)
+        #0: Node(count=1)
+        #1: Node(count=2)
+            #1: Node(count=2)
+```
