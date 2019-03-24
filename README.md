@@ -15,6 +15,7 @@ aid with debugging, but it also shows a way to implement a recursive algorithm w
 The output of the program is random, but it might be the following to give an example.
 
 ```
+Running 10 simulations...
 Node(count=10)
     #0: Node(count=5)
         #0: Node(count=2)
