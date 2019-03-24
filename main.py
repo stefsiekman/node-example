@@ -9,7 +9,7 @@ if __name__ == "__main__":
     tree = Node()
 
     # Run the simulations
-    print(f"Running {N} simulations.")
+    print(f"Running {N} simulations...")
     for _ in range(N):
         tree.simulate()
 
