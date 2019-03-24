@@ -13,6 +13,14 @@ class Node:
         self.children: List[Node] = [None] * MAX_CHILDREN
 
     def simulate(self):
+        """
+        Run a random simulation. This means the tree is traversed with a 1/4
+        chance at each node of termination, which leads to back propagation of
+        a counter increase. In the other case, the algorithm chooses a random
+        child to simulate from again.
+        :return: Nothing
+        """
+
         # 1/4 chance of termination
         if random() < .25:
             self.back_propagate()
@@ -25,8 +33,14 @@ class Node:
         self.children[child_nr].simulate()
 
     def back_propagate(self):
+        """
+        Increases the counter of the Node and all its ancestors.
+        :return: Nothing
+        """
+
         self.count += 1
 
+        # Apply to the ancestors
         if self.parent:
             self.parent.back_propagate()
 
@@ -34,6 +48,13 @@ class Node:
         return f"Node(count={self.count})"
 
     def pretty_string(self, depth=1):
+        """
+        Create a pretty representation of the tree structure from this node.
+        This includes all the (existing) children on the node. Indentation is
+        added to clearly show which Nodes are children of which Nodes.
+        :param depth: The recursion depth (default for root)
+        :return: Pretty string representation of the tree starting at this Node
+        """
         # Add this node to the string
         string = str(self) + '\n'
 
