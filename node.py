@@ -1,6 +1,7 @@
 from random import random, randint
 from typing import List
 
+
 MAX_CHILDREN = 2
 
 
@@ -23,9 +24,30 @@ class Node:
             self.children[child_nr] = Node(self)
         self.children[child_nr].simulate()
 
-
     def back_propagate(self):
         self.count += 1
 
         if self.parent:
             self.parent.back_propagate()
+
+    def __str__(self):
+        return f"Node(count={self.count})"
+
+    def pretty_string(self, depth=1):
+        # Add this node to the string
+        string = str(self) + '\n'
+
+        # Then add all the children
+        for nr in range(MAX_CHILDREN):
+            # Skip non-existing children
+            if not self.children[nr]:
+                continue
+
+            # Recursive indentation
+            string += "    " * depth
+
+            # The child itself, also called recursively
+            string += f"#{nr}: {self.children[nr].pretty_string(depth + 1)}\n"
+
+        # The string should not end with a newline
+        return string[:-1]
